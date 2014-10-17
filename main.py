@@ -17,7 +17,7 @@ for line in fileinput.FileInput('change.txt'):
                 line = line.strip()
                 s = linef2.split("CTA_SIZE", 1)[0]
                 str = " "
-                seq = [s, line]
+                seq = ["\t",s, line,";"]
                 s = str.join(seq)
                 print s
             else:
