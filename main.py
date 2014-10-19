@@ -12,14 +12,15 @@ for line in fileinput.FileInput('change.txt'):
     # loops through the lines in the write file
         for linef2 in fileinput.FileInput('constants.h', inplace=1):
     
-            linef2= linef2.strip()
+            #inef2 = linef2.strip(); 
             if "CTA_SIZE" in linef2:
+                linef2 = linef2.strip()
                 line = line.strip()
                 s = linef2.split("CTA_SIZE", 1)[0]
-                str = " "
-                seq = ["\t",s, line,";"]
+                str = ""
+                seq = ["",s, line,";"]
                 s = str.join(seq)
-                print s
+                print s.rstrip()
             else:
-                print linef2
+                print linef2.rstrip()
            
