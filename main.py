@@ -23,4 +23,5 @@ for line in fileinput.FileInput('change.txt'):
                 print s.rstrip()
             else:
                 print linef2.rstrip()
-           
+    elif "NUM_SIZE" in line:
+        print line
