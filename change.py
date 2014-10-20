@@ -9,14 +9,21 @@ for line in fileinput.FileInput('change.txt'):
     
     # gets rid of blank spaces
     line = line.strip()
-    print line
+    #print line
 
     s = line.split(" ", 1)[0]
-    print s
+    #print s
     for line2 in fileinput.FileInput('constants.h', inplace =1):
         if s in line2:
-            sp = line2.split(s,1)[0]
-            print sp 
+           line2 = line2.strip()
+           sp = line2.split(s,1)[0]
+           # print sp
+           seq = ["\t",sp, line, ";"]
+           str = ""
+           sp = str.join(seq) 
+           print sp.rstrip()
+        else:
+            print line2.rstrip()
 """
     if "CTA_SIZE" in line:
 
