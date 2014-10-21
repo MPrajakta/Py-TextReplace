@@ -1,6 +1,9 @@
 import fileinput
+import subprocess
+import sys
 
-for line in fileinput.FileInput('change.txt'):
+# takes the first command line argument as the file to find values to be modified 
+for line in fileinput.FileInput(sys.argv[1]):
   
       
     # looks for an empty line or comment
@@ -24,21 +27,7 @@ for line in fileinput.FileInput('change.txt'):
            print sp.rstrip()
         else:
             print line2.rstrip()
-"""
-    if "CTA_SIZE" in line:
 
-    # loops through the lines in the write file
-       for linef2 in fileinput.FileInput('constants.h', inplace=1):
-    
-            
-            if "CTA_SIZE" in linef2:
-                linef2 = linef2.strip()
-                line = line.strip()
-                s = linef2.split("CTA_SIZE", 1)[0]
-                str = ""
-                seq = ["\t",s, line,";"]
-                s = str.join(seq)
-                print s.rstrip()
-            else:
-                print linef2.rstrip()
-    """
+subprocess.call("make")
+subprocess.call(["make","clean"])
+#print sys.argv[1]
