@@ -28,6 +28,6 @@ for line in fileinput.FileInput(sys.argv[1]):
         else:
             print line2.rstrip()
 
+subprocess.call(["make", "clean"])
 subprocess.call("make")
-subprocess.call(["make","clean"])
 #print sys.argv[1]
